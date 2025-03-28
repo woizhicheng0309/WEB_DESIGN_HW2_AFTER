@@ -5,29 +5,29 @@ body {
 }
 
 .layout_padding {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .layout_padding2 {
-  padding-top: 45px;
-  padding-bottom: 45px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .layout_padding2-top {
-  padding-top: 45px;
+  padding-top: 30px;
 }
 
 .layout_padding2-bottom {
-  padding-bottom: 45px;
+  padding-bottom: 30px;
 }
 
 .layout_padding-top {
-  padding-top: 120px;
+  padding-top: 40px;
 }
 
 .layout_padding-bottom {
-  padding-bottom: 120px;
+  padding-bottom: 40px;
 }
 
 .heading_container {
@@ -61,7 +61,7 @@ body {
 
 /*header section*/
 .hero_area {
-  height: 80vh;
+  height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,6 +71,7 @@ body {
           flex-direction: column;
   background-image: url(../images/hero-bg.webp);
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 }
 
@@ -224,7 +225,7 @@ a:focus {
 }
 
 .slider_section .box {
-  margin: 60px 0;
+  margin: 45px 0;
 }
 
 .slider_section .detail-box {
@@ -299,6 +300,8 @@ a:focus {
   background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
 .us_section .us_container {
@@ -347,6 +350,8 @@ a:focus {
   background-attachment: fixed;
   color: #ffffff;
   text-align: center;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
 .heathy_section h2 {
@@ -391,6 +396,8 @@ a:focus {
   background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
 .trainer_section .box {
@@ -440,6 +447,8 @@ a:focus {
   position: relative;
   background-color: #27223f;
   color: #ffffff;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 
 .contact_section .heading_container {
