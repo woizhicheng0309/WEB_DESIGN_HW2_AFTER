@@ -14,12 +14,49 @@
 
   <title>Neogym</title>
 
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="images/hero-bg.webp">
+  
   <!-- Preload critical CSS -->
   <link rel="preload" href="css/style.css" as="style">
   <link rel="preload" href="css/bootstrap.css" as="style">
   
-  <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" as="font" crossorigin="anonymous">
+  <!-- Inline critical CSS for hero section -->
+  <style>
+    .hero_area {
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url(images/hero-bg.webp);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+    }
+    .slider_section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .detail-box {
+      text-align: center;
+    }
+    .detail-box h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      letter-spacing: .5rem;
+      text-transform: uppercase;
+    }
+    .detail-box h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .detail-box h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  </style>
 
   <!-- Defer non-critical CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'">
@@ -80,7 +117,7 @@
     </header>
     <!-- end header section -->
     <!-- slider section -->
-    <section class=" slider_section position-relative">
+    <section class="slider_section position-relative">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -88,22 +125,12 @@
               <div class="col-lg-10 col-md-11 mx-auto">
                 <div class="detail-box">
                   <div>
-                    <h3>
-                      Fitness
-                    </h3>
-                    <h2>
-                      Training
-                    </h2>
-                    <h1>
-                      Neogym
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <div class="">
-                      <a href="">
-                        Contact Us
-                      </a>
+                    <h3>Fitness</h3>
+                    <h2>Training</h2>
+                    <h1>Neogym</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div>
+                      <a href="">Contact Us</a>
                     </div>
                   </div>
                 </div>
