@@ -164,6 +164,12 @@ a:focus {
   height: 35px;
   padding: 0;
   border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.custom_nav-container .nav_search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .navbar-brand {
@@ -255,14 +261,12 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 8px 35px;
-  background-color: transparent;
+  background-color: #ff2953;
   border: 1.5px solid #ffffff;
   color: #ffffff;
   border-radius: 0px;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   text-transform: uppercase;
   margin-top: 35px;
 }
@@ -409,14 +413,12 @@ a:focus {
 .heathy_section .btn-box a {
   display: inline-block;
   padding: 8px 35px;
-  background-color: transparent;
+  background-color: #ff2953;
   border: 1.5px solid #ffffff;
   color: #ffffff;
   border-radius: 0;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   text-transform: uppercase;
 }
 
@@ -565,9 +567,14 @@ a:focus {
   outline: none;
   border: none;
   color: #ffffff;
-  background: #ff2953;
+  background: #d61533;
   margin: 45px 0 0 auto;
   text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.contact_section button:hover {
+  background: #b31029;
 }
 
 .info_section {
