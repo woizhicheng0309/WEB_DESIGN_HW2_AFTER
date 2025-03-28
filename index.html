@@ -206,6 +206,49 @@
     .message-box {
       min-height: 120px;
     }
+
+    /* Trainer section specific styles */
+    .trainer_section .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 45px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .trainer_section .img-box {
+      width: 100%;
+      max-width: 300px;
+      margin: 15px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .trainer_section .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .trainer_section .name {
+      margin-bottom: 15px;
+    }
+
+    .trainer_section .name h5 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .trainer_section .social_box {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
   </style>
 
   <!-- Preload critical fonts with high priority -->
@@ -547,14 +590,18 @@
         <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
-              <h5>
-                Smirth Jon
-              </h5>
+              <h5>Smirth Jon</h5>
             </div>
-            <div class="img-box aspect-ratio-box">
-              <div class="aspect-ratio-box-content">
-                <img src="images/t1.webp" alt="Smirth Jon" width="300" height="300" loading="lazy">
-              </div>
+            <div class="img-box">
+              <img 
+                src="images/t1.webp" 
+                alt="Smirth Jon" 
+                width="300" 
+                height="300"
+                loading="eager"
+                decoding="sync"
+                fetchpriority="high"
+              >
             </div>
             <div class="social_box">
               <div class="social-icon">
@@ -576,10 +623,16 @@
                 Jean Doe
               </h5>
             </div>
-            <div class="img-box aspect-ratio-box">
-              <div class="aspect-ratio-box-content">
-                <img src="images/t2.webp" alt="Jean Doe" width="300" height="300" loading="lazy">
-              </div>
+            <div class="img-box">
+              <img 
+                src="images/t2.webp" 
+                alt="Jean Doe" 
+                width="300" 
+                height="300"
+                loading="eager"
+                decoding="sync"
+                fetchpriority="high"
+              >
             </div>
             <div class="social_box">
               <div class="social-icon">
@@ -601,10 +654,16 @@
                 Alex Den
               </h5>
             </div>
-            <div class="img-box aspect-ratio-box">
-              <div class="aspect-ratio-box-content">
-                <img src="images/t3.webp" alt="Alex Den" width="300" height="300" loading="lazy">
-              </div>
+            <div class="img-box">
+              <img 
+                src="images/t3.webp" 
+                alt="Alex Den" 
+                width="300" 
+                height="300"
+                loading="eager"
+                decoding="sync"
+                fetchpriority="high"
+              >
             </div>
             <div class="social_box">
               <div class="social-icon">
