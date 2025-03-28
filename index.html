@@ -21,21 +21,51 @@
 
   <!-- Critical CSS inline -->
   <style>
-    /* Font fallback to prevent FOUT */
+    /* Font fallback with similar metrics to Poppins */
     @font-face {
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 400;
-      font-display: swap;
+      font-display: optional;
       src: local('Arial');
+      size-adjust: 105%;
+      ascent-override: 103%;
+      descent-override: 28%;
+      line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-display: optional;
+      src: local('Arial Bold');
+      size-adjust: 105%;
+      ascent-override: 103%;
+      descent-override: 28%;
+      line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      font-display: optional;
+      src: local('Arial Bold');
+      size-adjust: 105%;
+      ascent-override: 103%;
+      descent-override: 28%;
+      line-gap-override: 0%;
     }
 
-    /* Base styles */
+    /* Base styles with font metrics */
     body {
       font-family: 'Poppins', Arial, sans-serif;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     /* Hero and slider fixes */
@@ -56,19 +86,72 @@
       display: flex;
       align-items: center;
       width: 100%;
-      height: calc(100vh - 80px); /* Fixed height accounting for header */
+      height: calc(100vh - 80px);
       position: relative;
       overflow: hidden;
+      contain: layout size;
+      contain-intrinsic-size: 100vh;
     }
 
+    .slider_section .detail-box {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      contain: layout style;
+      contain-intrinsic-size: 400px;
+    }
+
+    .slider_section h1,
+    .slider_section h2,
+    .slider_section h3 {
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .slider_section h1 {
+      font-size: clamp(2.5rem, 5vw, 3rem);
+      font-weight: 700;
+      height: 3.6rem;
+      contain: layout style;
+    }
+
+    .slider_section h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      height: 3rem;
+      contain: layout style;
+    }
+
+    .slider_section h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      height: 2.4rem;
+      contain: layout style;
+    }
+
+    .slider_section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+      height: auto;
+      min-height: 4.8rem;
+      contain: layout style;
+    }
+
+    /* Carousel fixes */
     #carouselExampleIndicators {
       width: 100%;
       height: 100%;
       position: relative;
+      contain: layout style;
     }
 
     .carousel-inner {
       height: 100%;
+      contain: layout style;
     }
 
     .carousel-item {
@@ -76,6 +159,13 @@
       height: 100%;
       display: flex;
       align-items: center;
+      contain: layout style;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
     }
 
     .carousel-item .container {
@@ -251,12 +341,13 @@
     }
   </style>
 
-  <!-- Preload critical fonts with high priority -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" as="style">
+  <!-- Preload critical fonts -->
   <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap">
+  <!-- Load fonts with size-adjust -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" media="print" onload="this.media='all'">
 
   <!-- Non-critical CSS with defer loading -->
   <link rel="stylesheet" href="css/bootstrap.css" media="print" onload="this.media='all'" />
@@ -789,20 +880,46 @@
   
   <!-- Immediate carousel initialization -->
   <script>
-    // Initialize carousel as soon as possible
+    // Pre-initialize carousel state
     document.addEventListener('DOMContentLoaded', function() {
+      // Set initial state of carousel items
+      var items = document.querySelectorAll('.carousel-item');
+      items.forEach(function(item, index) {
+        if (index === 0) {
+          item.classList.add('active');
+          item.style.opacity = '1';
+        } else {
+          item.style.opacity = '0';
+        }
+      });
+
+      // Initialize carousel container
       var carousel = document.querySelector('#carouselExampleIndicators');
       if (carousel) {
-        // Set initial state
-        carousel.style.opacity = '0';
-        carousel.style.transition = 'opacity 0.3s ease-in';
-        
-        // After bootstrap loads and initializes
-        setTimeout(function() {
-          carousel.style.opacity = '1';
-        }, 100);
+        carousel.style.visibility = 'visible';
+        carousel.style.opacity = '1';
       }
+
+      // Initialize carousel indicators
+      var indicators = document.querySelectorAll('.carousel-indicators li');
+      indicators.forEach(function(indicator, index) {
+        indicator.style.opacity = '1';
+        if (index === 0) {
+          indicator.classList.add('active');
+        }
+      });
     });
+
+    // Handle font loading
+    if ("fonts" in document) {
+      Promise.all([
+        document.fonts.load("1em Poppins"),
+        document.fonts.load("600 1em Poppins"),
+        document.fonts.load("700 1em Poppins")
+      ]).then(function() {
+        document.documentElement.classList.add('fonts-loaded');
+      });
+    }
   </script>
 </body>
 
