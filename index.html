@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
   <meta name="keywords" content="" />
-  <meta name="description" content="" />
+  <meta name="description" content="Neogym - Your Premium Fitness Center" />
   <meta name="author" content="" />
 
   <title>Neogym</title>
@@ -17,12 +17,17 @@
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="images/hero-bg.webp">
   
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="css/style.css" as="style">
-  <link rel="preload" href="css/bootstrap.css" as="style">
-  
-  <!-- Inline critical CSS for hero section -->
+  <!-- Critical CSS -->
   <style>
+    /* Critical styles for above-the-fold content */
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #000000;
+      background-color: #ffffff;
+    }
+
     .hero_area {
       height: 70vh;
       display: flex;
@@ -30,45 +35,94 @@
       background-image: url(images/hero-bg.webp);
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      color: #ffffff;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .header_section {
+      padding: 15px 0;
+    }
+
+    .navbar-brand span {
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: bold;
       color: #ffffff;
     }
+
+    .nav-link {
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 15px;
+      margin: 10px 30px;
+    }
+
     .slider_section {
       flex: 1;
       display: flex;
       align-items: center;
     }
+
     .detail-box {
       text-align: center;
     }
+
     .detail-box h1 {
       font-size: 3.5rem;
       font-weight: bold;
       letter-spacing: .5rem;
       text-transform: uppercase;
+      margin: 0;
     }
+
     .detail-box h2 {
       font-size: 2.5rem;
       font-weight: bold;
       text-transform: uppercase;
+      margin: 0;
     }
+
     .detail-box h3 {
       text-transform: uppercase;
       font-weight: bold;
+      margin: 0;
+    }
+
+    .detail-box p {
+      margin-top: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .hero_area {
+        height: auto;
+        min-height: 70vh;
+      }
+      .detail-box h1 {
+        font-size: 2.5rem;
+      }
+      .detail-box h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 
-  <!-- Defer non-critical CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'">
-
-  <!-- Critical CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Defer Google Fonts -->
+  <!-- Defer non-critical CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  
   <noscript>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   </noscript>
 </head>
@@ -492,9 +546,9 @@
   </footer>
   <!-- footer section -->
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-
+  <!-- Deferred JavaScript -->
+  <script defer src="js/jquery-3.4.1.min.js"></script>
+  <script defer src="js/bootstrap.js"></script>
 </body>
 
 </html>
