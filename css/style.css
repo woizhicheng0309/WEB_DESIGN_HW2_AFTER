@@ -104,6 +104,7 @@ body {
   position: relative;
   text-transform: uppercase;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link::after {
@@ -163,13 +164,13 @@ a:focus {
   width: 35px;
   height: 35px;
   padding: 0;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
 }
 
 .custom_nav-container .nav_search-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .navbar-brand {
@@ -261,19 +262,21 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 8px 35px;
-  background-color: #ff2953;
-  border: 1.5px solid #ffffff;
+  background-color: #E01E37;
+  border: 2px solid #ffffff;
   color: #ffffff;
-  border-radius: 0px;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   text-transform: uppercase;
   margin-top: 35px;
+  font-weight: bold;
 }
 
 .slider_section .detail-box a:hover {
   background-color: #ffffff;
   color: #000000;
+  border-color: #ffffff;
 }
 
 .slider_section #carouselExampleIndicators .carousel-indicators {
@@ -413,18 +416,20 @@ a:focus {
 .heathy_section .btn-box a {
   display: inline-block;
   padding: 8px 35px;
-  background-color: #ff2953;
-  border: 1.5px solid #ffffff;
+  background-color: #E01E37;
+  border: 2px solid #ffffff;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .heathy_section .btn-box a:hover {
   background-color: #ffffff;
   color: #000000;
+  border-color: #ffffff;
 }
 
 .trainer_section {
@@ -567,14 +572,16 @@ a:focus {
   outline: none;
   border: none;
   color: #ffffff;
-  background: #d61533;
+  background: #E01E37;
   margin: 45px 0 0 auto;
   text-transform: uppercase;
   transition: all 0.3s;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 .contact_section button:hover {
-  background: #b31029;
+  background: #B31029;
 }
 
 .info_section {
