@@ -21,7 +21,24 @@
 
   <!-- Critical CSS inline -->
   <style>
-    /* Add your critical CSS here - styles needed for above-the-fold content */
+    /* Font fallback to prevent FOUT */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Arial');
+    }
+
+    /* Base styles */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Hero and slider fixes */
     .hero_area {
       min-height: 100vh;
       height: 100vh;
@@ -33,40 +50,97 @@
       display: flex;
       flex-direction: column;
     }
-    .header_section {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 15px 0;
-      z-index: 999;
-    }
+
     .slider_section {
       flex: 1;
       display: flex;
       align-items: center;
+      width: 100%;
+      height: calc(100vh - 80px); /* Fixed height accounting for header */
+      position: relative;
+      overflow: hidden;
     }
+
+    #carouselExampleIndicators {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-inner {
+      height: 100%;
+    }
+
     .carousel-item {
       min-height: calc(100vh - 80px);
+      height: 100%;
       display: flex;
       align-items: center;
     }
-    /* Prevent layout shifts for text */
+
+    .carousel-item .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Text content fixes */
+    .detail-box {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     .detail-box h1 {
-      font-size: 3rem;
+      font-size: clamp(2.5rem, 5vw, 3rem);
       margin: 0;
       line-height: 1.2;
+      font-weight: 700;
     }
+
     .detail-box h2 {
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 4vw, 2.5rem);
       margin: 0;
       line-height: 1.2;
+      font-weight: 600;
     }
+
     .detail-box h3 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       margin: 0;
       line-height: 1.2;
+      font-weight: 400;
     }
+
+    .detail-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    /* Carousel indicators fix */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
     /* Reserve space for images */
     .img-box {
       position: relative;
@@ -134,11 +208,12 @@
     }
   </style>
 
-  <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-  </noscript>
+  <!-- Preload critical fonts with high priority -->
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" as="style">
+  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap">
 
   <!-- Non-critical CSS with defer loading -->
   <link rel="stylesheet" href="css/bootstrap.css" media="print" onload="this.media='all'" />
@@ -652,6 +727,24 @@
   <!-- Defer non-critical JavaScript -->
   <script src="js/jquery-3.4.1.min.js" defer></script>
   <script src="js/bootstrap.js" defer></script>
+  
+  <!-- Immediate carousel initialization -->
+  <script>
+    // Initialize carousel as soon as possible
+    document.addEventListener('DOMContentLoaded', function() {
+      var carousel = document.querySelector('#carouselExampleIndicators');
+      if (carousel) {
+        // Set initial state
+        carousel.style.opacity = '0';
+        carousel.style.transition = 'opacity 0.3s ease-in';
+        
+        // After bootstrap loads and initializes
+        setTimeout(function() {
+          carousel.style.opacity = '1';
+        }, 100);
+      }
+    });
+  </script>
 </body>
 
 </html>
