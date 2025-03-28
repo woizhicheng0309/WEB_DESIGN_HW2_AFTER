@@ -14,22 +14,6 @@ body {
   padding-bottom: 45px;
 }
 
-.layout_padding2-top {
-  padding-top: 45px;
-}
-
-.layout_padding2-bottom {
-  padding-bottom: 45px;
-}
-
-.layout_padding-top {
-  padding-top: 120px;
-}
-
-.layout_padding-bottom {
-  padding-bottom: 120px;
-}
-
 .heading_container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -75,14 +59,6 @@ body {
 }
 
 .sub_page .hero_area {
-  height: auto;
-}
-
-.sub_page .who_section.layout_padding {
-  padding-top: 0;
-}
-
-.hero_area.sub_pages {
   height: auto;
 }
 
@@ -590,4 +566,3 @@ a:focus {
 }
 
 /* end footer section*/
-/*# sourceMappingURL=style.css.map */

@@ -12,20 +12,47 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
+  <!-- Preconnect to required origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
   <title>Neogym</title>
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- Critical CSS inline -->
+  <style>
+    /* Add your critical CSS here - styles needed for above-the-fold content */
+    .hero_area {
+      min-height: 100vh;
+      position: relative;
+    }
+    .header_section {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+  </style>
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  </noscript>
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- Non-critical CSS with defer loading -->
+  <link rel="stylesheet" href="css/purged/bootstrap.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/purged/style.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/purged/responsive.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'" />
+
+  <!-- Fallback for browsers that don't support media="print" onload -->
+  <noscript>
+    <link rel="stylesheet" href="css/purged/bootstrap.css">
+    <link rel="stylesheet" href="css/purged/style.css">
+    <link rel="stylesheet" href="css/purged/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  </noscript>
 </head>
 
 <body>
@@ -239,7 +266,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
-                <img src="images/u-1.png" alt="">
+                <img src="images/u-1.png" alt="Quality Equipment" width="80" height="80">
               </div>
               <div class="detail-box">
                 <h5>
@@ -254,7 +281,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
-                <img src="images/u-4.png" alt="">
+                <img src="images/u-4.png" alt="Nutrition" width="80" height="80">
               </div>
               <div class="detail-box">
                 <h5>
@@ -269,7 +296,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
-                <img src="images/u-2.png" alt="">
+                <img src="images/u-2.png" alt="Healthy Diet Plan" width="80" height="80">
               </div>
               <div class="detail-box">
                 <h5>
@@ -284,7 +311,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="box">
               <div class="img-box">
-                <img src="images/u-3.png" alt="">
+                <img src="images/u-3.png" alt="Sport Training" width="80" height="80">
               </div>
               <div class="detail-box">
                 <h5>
@@ -350,17 +377,17 @@
               </h5>
             </div>
             <div class="img-box">
-              <img src="images/t1.jpg" alt="">
+              <img src="images/t1.webp" alt="Smirth Jon" width="300" height="300">
             </div>
             <div class="social_box">
               <a href="">
-                <img src="images/facebook-logo.png" alt="">
+                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/twitter.png" alt="">
+                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/instagram-logo.png" alt="">
+                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
               </a>
             </div>
           </div>
@@ -373,17 +400,17 @@
               </h5>
             </div>
             <div class="img-box">
-              <img src="images/t2.jpg" alt="">
+              <img src="images/t2.webp" alt="Jean Doe" width="300" height="300">
             </div>
             <div class="social_box">
               <a href="">
-                <img src="images/facebook-logo.png" alt="">
+                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/twitter.png" alt="">
+                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/instagram-logo.png" alt="">
+                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
               </a>
             </div>
           </div>
@@ -396,17 +423,17 @@
               </h5>
             </div>
             <div class="img-box">
-              <img src="images/t3.jpg" alt="">
+              <img src="images/t3.webp" alt="Alex Den" width="300" height="300">
             </div>
             <div class="social_box">
               <a href="">
-                <img src="images/facebook-logo.png" alt="">
+                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/twitter.png" alt="">
+                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
               </a>
               <a href="">
-                <img src="images/instagram-logo.png" alt="">
+                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
               </a>
             </div>
           </div>
@@ -424,7 +451,7 @@
       <div class="row">
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/contact-img.jpg" alt="">
+            <img src="images/contact-img.webp" alt="Contact Us" width="800" height="600">
           </div>
         </div>
         <div class="col-lg-5 col-md-6">
@@ -516,9 +543,9 @@
   </footer>
   <!-- footer section -->
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-
+  <!-- Defer non-critical JavaScript -->
+  <script src="js/jquery-3.4.1.min.js" defer></script>
+  <script src="js/bootstrap.js" defer></script>
 </body>
 
 </html>
