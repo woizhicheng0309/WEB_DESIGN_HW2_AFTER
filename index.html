@@ -19,17 +19,28 @@
   
   <!-- Critical CSS -->
   <style>
-    /* Critical styles for above-the-fold content */
+    /* Font fallback to prevent layout shift */
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+    }
+
+    /* Critical styles with explicit dimensions */
     body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 0;
       color: #000000;
       background-color: #ffffff;
+      min-height: 100vh;
     }
 
     .hero_area {
       height: 70vh;
+      min-height: 600px;
       display: flex;
       flex-direction: column;
       background-image: url(images/hero-bg.webp);
@@ -62,10 +73,23 @@
       flex: 1;
       display: flex;
       align-items: center;
+      min-height: 400px;
+      width: 100%;
+    }
+
+    .slider_section .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
 
     .detail-box {
       text-align: center;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .detail-box h1 {
@@ -74,6 +98,8 @@
       letter-spacing: .5rem;
       text-transform: uppercase;
       margin: 0;
+      line-height: 1.2;
+      min-height: 4.2rem;
     }
 
     .detail-box h2 {
@@ -81,28 +107,83 @@
       font-weight: bold;
       text-transform: uppercase;
       margin: 0;
+      line-height: 1.2;
+      min-height: 3rem;
     }
 
     .detail-box h3 {
       text-transform: uppercase;
       font-weight: bold;
       margin: 0;
+      line-height: 1.2;
+      min-height: 2.4rem;
     }
 
     .detail-box p {
-      margin-top: 25px;
+      margin: 25px 0;
+      line-height: 1.6;
+      min-height: 3.2rem;
+    }
+
+    /* Carousel indicators with fixed height */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .carousel-indicators li {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 4px;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .carousel-indicators li.active {
+      background-color: #ffffff;
+    }
+
+    /* Contact button with fixed dimensions */
+    .detail-box a {
+      display: inline-block;
+      padding: 12px 45px;
+      background-color: #ff2953;
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-top: 15px;
+      min-width: 160px;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
       .hero_area {
-        height: auto;
-        min-height: 70vh;
+        min-height: 500px;
       }
       .detail-box h1 {
         font-size: 2.5rem;
+        min-height: 3rem;
       }
       .detail-box h2 {
         font-size: 2rem;
+        min-height: 2.4rem;
+      }
+      .detail-box h3 {
+        min-height: 2rem;
+      }
+      .detail-box p {
+        min-height: 4.8rem;
       }
     }
   </style>
@@ -125,6 +206,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   </noscript>
+
+  <!-- Font preload -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <body>
@@ -182,9 +266,9 @@
                     <h3>Fitness</h3>
                     <h2>Training</h2>
                     <h1>Neogym</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Experience the ultimate fitness journey with our state-of-the-art equipment and expert trainers.</p>
                     <div>
-                      <a href="">Contact Us</a>
+                      <a href="" class="contact-btn">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -196,22 +280,12 @@
               <div class="col-lg-10 col-md-11 mx-auto">
                 <div class="detail-box">
                   <div>
-                    <h3>
-                      Expert
-                    </h3>
-                    <h2>
-                      Trainers
-                    </h2>
-                    <h1>
-                      Neogym
-                    </h1>
-                    <p>
-                      Our certified trainers will help you achieve your fitness goals with personalized workout plans and expert guidance. Join us to transform your life with professional training.
-                    </p>
-                    <div class="">
-                      <a href="">
-                        Contact Us
-                      </a>
+                    <h3>Expert</h3>
+                    <h2>Trainers</h2>
+                    <h1>Neogym</h1>
+                    <p>Train with certified professionals who will guide you to achieve your fitness goals.</p>
+                    <div>
+                      <a href="" class="contact-btn">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -223,22 +297,12 @@
               <div class="col-lg-10 col-md-11 mx-auto">
                 <div class="detail-box">
                   <div>
-                    <h3>
-                      Modern
-                    </h3>
-                    <h2>
-                      Equipment
-                    </h2>
-                    <h1>
-                      Neogym
-                    </h1>
-                    <p>
-                      Train with state-of-the-art equipment in our modern facility. We provide the best tools and environment for your fitness journey.
-                    </p>
-                    <div class="">
-                      <a href="">
-                        Contact Us
-                      </a>
+                    <h3>Modern</h3>
+                    <h2>Equipment</h2>
+                    <h1>Neogym</h1>
+                    <p>Access premium fitness equipment in our modern facility designed for optimal results.</p>
+                    <div>
+                      <a href="" class="contact-btn">Contact Us</a>
                     </div>
                   </div>
                 </div>
