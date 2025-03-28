@@ -296,12 +296,28 @@ a:focus {
 }
 
 .us_section {
-  background-image: url(../images/us-bg.jpg);
+  background-image: url(../images/us-bg.webp);
   background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
   padding-top: 45px;
   padding-bottom: 45px;
+  position: relative;
+}
+
+.us_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.us_section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .us_section .us_container {
@@ -324,20 +340,20 @@ a:focus {
 }
 
 .us_section .us_container .box .img-box {
-  height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 120px;
+  width: 120px;
+  margin-bottom: 15px;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 100%;
+  padding: 20px;
 }
 
 .us_section .us_container .box .img-box img {
-  max-width: 100%;
+  max-width: 75px;
+  filter: brightness(0) invert(1);
 }
 
 .us_section .us_container .box .detail-box h5 {
@@ -345,13 +361,29 @@ a:focus {
 }
 
 .heathy_section {
-  background-image: url(../images/healthy-bg.jpg);
+  background-image: url(../images/healthy-bg.webp);
   background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
   text-align: center;
   padding-top: 45px;
   padding-bottom: 45px;
+  position: relative;
+}
+
+.heathy_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.heathy_section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .heathy_section h2 {
@@ -392,27 +424,32 @@ a:focus {
 }
 
 .trainer_section {
-  background-image: url(../images/trainer-bg.jpg);
+  background-image: url(../images/trainer-bg.webp);
   background-size: cover;
   background-attachment: fixed;
   color: #ffffff;
   padding-top: 45px;
   padding-bottom: 45px;
+  position: relative;
+}
+
+.trainer_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.trainer_section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .trainer_section .box {
-  margin-top: 55px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
+  margin-top: 35px;
 }
 
 .trainer_section .box .name h5 {
@@ -423,10 +460,13 @@ a:focus {
 .trainer_section .box .img-box {
   border-radius: 15px;
   overflow: hidden;
+  margin: 25px 0;
 }
 
 .trainer_section .box .img-box img {
   width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 .trainer_section .box .social_box {
@@ -472,6 +512,8 @@ a:focus {
 
 .contact_section .img-box img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .contact_section .form_container {
@@ -554,6 +596,8 @@ a:focus {
   border-radius: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-size: 40px;
 }
 
 .info_items .item .detail-box {
