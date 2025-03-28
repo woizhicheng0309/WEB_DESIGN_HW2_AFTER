@@ -12,356 +12,20 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <!-- Preconnect to required origins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
   <title>Neogym</title>
 
-  <!-- Critical CSS inline -->
-  <style>
-    /* Font fallback with similar metrics to Poppins */
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 400;
-      font-display: optional;
-      src: local('Arial');
-      size-adjust: 105%;
-      ascent-override: 103%;
-      descent-override: 28%;
-      line-gap-override: 0%;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 600;
-      font-display: optional;
-      src: local('Arial Bold');
-      size-adjust: 105%;
-      ascent-override: 103%;
-      descent-override: 28%;
-      line-gap-override: 0%;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 700;
-      font-display: optional;
-      src: local('Arial Bold');
-      size-adjust: 105%;
-      ascent-override: 103%;
-      descent-override: 28%;
-      line-gap-override: 0%;
-    }
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-    /* Base styles with font metrics */
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-size: 16px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-    /* Hero and slider fixes */
-    .hero_area {
-      min-height: 100vh;
-      height: 100vh;
-      position: relative;
-      background-image: url('images/hero-bg.webp');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .slider_section {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: calc(100vh - 80px);
-      position: relative;
-      overflow: hidden;
-      contain: layout size;
-      contain-intrinsic-size: 100vh;
-    }
-
-    .slider_section .detail-box {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      contain: layout style;
-      contain-intrinsic-size: 400px;
-    }
-
-    .slider_section h1,
-    .slider_section h2,
-    .slider_section h3 {
-      margin: 0;
-      padding: 0;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .slider_section h1 {
-      font-size: clamp(2.5rem, 5vw, 3rem);
-      font-weight: 700;
-      height: 3.6rem;
-      contain: layout style;
-    }
-
-    .slider_section h2 {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      font-weight: 600;
-      height: 3rem;
-      contain: layout style;
-    }
-
-    .slider_section h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 400;
-      height: 2.4rem;
-      contain: layout style;
-    }
-
-    .slider_section p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 1rem 0;
-      height: auto;
-      min-height: 4.8rem;
-      contain: layout style;
-    }
-
-    /* Carousel fixes */
-    #carouselExampleIndicators {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      contain: layout style;
-    }
-
-    .carousel-inner {
-      height: 100%;
-      contain: layout style;
-    }
-
-    .carousel-item {
-      min-height: calc(100vh - 80px);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      contain: layout style;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .carousel-item.active {
-      opacity: 1;
-    }
-
-    .carousel-item .container {
-      width: 100%;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-
-    /* Text content fixes */
-    .detail-box {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .detail-box h1 {
-      font-size: clamp(2.5rem, 5vw, 3rem);
-      margin: 0;
-      line-height: 1.2;
-      font-weight: 700;
-    }
-
-    .detail-box h2 {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      margin: 0;
-      line-height: 1.2;
-      font-weight: 600;
-    }
-
-    .detail-box h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin: 0;
-      line-height: 1.2;
-      font-weight: 400;
-    }
-
-    .detail-box p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 1rem 0;
-    }
-
-    /* Carousel indicators fix */
-    .carousel-indicators {
-      position: absolute;
-      bottom: 20px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .carousel-indicators li {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin: 0 5px;
-      background-color: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-    }
-
-    /* Reserve space for images */
-    .img-box {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .img-box img {
-      max-width: 100%;
-      height: auto;
-    }
-    /* Aspect ratio containers */
-    .aspect-ratio-box {
-      position: relative;
-      padding-top: 100%; /* 1:1 Aspect Ratio */
-    }
-    .aspect-ratio-box-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Icon specific styles */
-    .icon-container {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
-    }
-    /* Social icon container */
-    .social-icon {
-      width: 24px;
-      height: 24px;
-      display: inline-flex;
-      margin: 0 5px;
-    }
-    /* Contact section */
-    .contact-img-container {
-      position: relative;
-      padding-top: 75%; /* 4:3 Aspect Ratio */
-    }
-    .contact-img-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .form_container {
-      padding: 2rem;
-    }
-    .form_container input {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      border: 1px solid #ddd;
-    }
-    .message-box {
-      min-height: 120px;
-    }
-
-    /* Trainer section specific styles */
-    .trainer_section .box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-bottom: 45px;
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-    }
-
-    .trainer_section .img-box {
-      width: 100%;
-      max-width: 300px;
-      margin: 15px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .trainer_section .img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .trainer_section .name {
-      margin-bottom: 15px;
-    }
-
-    .trainer_section .name h5 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .trainer_section .social_box {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-    }
-  </style>
-
-  <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
-  
-  <!-- Load fonts with size-adjust -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" media="print" onload="this.media='all'">
-
-  <!-- Non-critical CSS with defer loading -->
-  <link rel="stylesheet" href="css/bootstrap.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" media="print" onload="this.media='all'" />
-
-  <!-- Fallback for browsers that don't support media="print" onload -->
-  <noscript>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  </noscript>
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -574,8 +238,8 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="box">
-              <div class="icon-container">
-                <img src="images/u-1.png" alt="Quality Equipment" width="80" height="80" loading="lazy">
+              <div class="img-box">
+                <img src="images/u-1.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -589,8 +253,8 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="box">
-              <div class="icon-container">
-                <img src="images/u-4.png" alt="Nutrition" width="80" height="80" loading="lazy">
+              <div class="img-box">
+                <img src="images/u-4.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -604,8 +268,8 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="box">
-              <div class="icon-container">
-                <img src="images/u-2.png" alt="Healthy Diet Plan" width="80" height="80" loading="lazy">
+              <div class="img-box">
+                <img src="images/u-2.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -619,8 +283,8 @@
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="box">
-              <div class="icon-container">
-                <img src="images/u-3.png" alt="Sport Training" width="80" height="80" loading="lazy">
+              <div class="img-box">
+                <img src="images/u-3.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -681,29 +345,23 @@
         <div class="col-lg-4 col-md-6 mx-auto">
           <div class="box">
             <div class="name">
-              <h5>Smirth Jon</h5>
+              <h5>
+                Smirth Jon
+              </h5>
             </div>
             <div class="img-box">
-              <img 
-                src="images/t1.webp" 
-                alt="Smirth Jon" 
-                width="300" 
-                height="300"
-                loading="eager"
-                decoding="sync"
-                fetchpriority="high"
-              >
+              <img src="images/t1.jpg" alt="">
             </div>
             <div class="social_box">
-              <div class="social-icon">
-                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
-              </div>
+              <a href="">
+                <img src="images/facebook-logo.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/instagram-logo.png" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -715,26 +373,18 @@
               </h5>
             </div>
             <div class="img-box">
-              <img 
-                src="images/t2.webp" 
-                alt="Jean Doe" 
-                width="300" 
-                height="300"
-                loading="eager"
-                decoding="sync"
-                fetchpriority="high"
-              >
+              <img src="images/t2.jpg" alt="">
             </div>
             <div class="social_box">
-              <div class="social-icon">
-                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
-              </div>
+              <a href="">
+                <img src="images/facebook-logo.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/instagram-logo.png" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -746,26 +396,18 @@
               </h5>
             </div>
             <div class="img-box">
-              <img 
-                src="images/t3.webp" 
-                alt="Alex Den" 
-                width="300" 
-                height="300"
-                loading="eager"
-                decoding="sync"
-                fetchpriority="high"
-              >
+              <img src="images/t3.jpg" alt="">
             </div>
             <div class="social_box">
-              <div class="social-icon">
-                <img src="images/facebook-logo.png" alt="Facebook" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/twitter.png" alt="Twitter" width="24" height="24">
-              </div>
-              <div class="social-icon">
-                <img src="images/instagram-logo.png" alt="Instagram" width="24" height="24">
-              </div>
+              <a href="">
+                <img src="images/facebook-logo.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/instagram-logo.png" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -781,8 +423,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 px-0">
-          <div class="contact-img-container">
-            <img src="images/contact-img.webp" alt="Contact Us" width="800" height="600" loading="lazy">
+          <div class="img-box">
+            <img src="images/contact-img.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-5 col-md-6">
@@ -874,53 +516,9 @@
   </footer>
   <!-- footer section -->
 
-  <!-- Defer non-critical JavaScript -->
-  <script src="js/jquery-3.4.1.min.js" defer></script>
-  <script src="js/bootstrap.js" defer></script>
-  
-  <!-- Immediate carousel initialization -->
-  <script>
-    // Pre-initialize carousel state
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set initial state of carousel items
-      var items = document.querySelectorAll('.carousel-item');
-      items.forEach(function(item, index) {
-        if (index === 0) {
-          item.classList.add('active');
-          item.style.opacity = '1';
-        } else {
-          item.style.opacity = '0';
-        }
-      });
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
 
-      // Initialize carousel container
-      var carousel = document.querySelector('#carouselExampleIndicators');
-      if (carousel) {
-        carousel.style.visibility = 'visible';
-        carousel.style.opacity = '1';
-      }
-
-      // Initialize carousel indicators
-      var indicators = document.querySelectorAll('.carousel-indicators li');
-      indicators.forEach(function(indicator, index) {
-        indicator.style.opacity = '1';
-        if (index === 0) {
-          indicator.classList.add('active');
-        }
-      });
-    });
-
-    // Handle font loading
-    if ("fonts" in document) {
-      Promise.all([
-        document.fonts.load("1em Poppins"),
-        document.fonts.load("600 1em Poppins"),
-        document.fonts.load("700 1em Poppins")
-      ]).then(function() {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    }
-  </script>
 </body>
 
 </html>

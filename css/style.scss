@@ -87,7 +87,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url('../images/hero-bg.webp');
+  background-image: url(../images/hero-bg.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -305,7 +305,7 @@ a:focus {
 // us section
 
 .us_section {
-  background-image: url('../images/us-bg.webp');
+  background-image: url(../images/us-bg.jpg);
   background-size: cover;
   background-attachment: fixed;
   color: $white;
@@ -346,7 +346,7 @@ a:focus {
 // heathy section
 
 .heathy_section {
-  background-image: url('../images/healthy-bg.webp');
+  background-image: url(../images/healthy-bg.jpg);
   background-size: cover;
   background-attachment: fixed;
   color: $white;
@@ -379,7 +379,7 @@ a:focus {
 // trainer section
 
 .trainer_section {
-  background-image: url('../images/trainer-bg.webp');
+  background-image: url(../images/trainer-bg.jpg);
   background-size: cover;
   background-attachment: fixed;
   color: $white;
